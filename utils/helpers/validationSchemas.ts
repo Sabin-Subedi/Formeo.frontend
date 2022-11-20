@@ -24,7 +24,7 @@ export function getValidationSchemaObject(validationFieldKeys: string[]) {
     }
 
     Object.assign(validationSchemaObj, {
-      item: objectSchema[item],
+      [item]: objectSchema[item],
     });
   });
 

@@ -8,7 +8,7 @@ import {
 import React from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
-function PasswordInput() {
+export function PasswordInput() {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
 
@@ -31,7 +31,3 @@ function PasswordInput() {
     </InputGroup>
   );
 }
-
-export default {
-  PasswordInput,
-};

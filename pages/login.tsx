@@ -1,13 +1,18 @@
 import { Button, Flex, HStack, Text } from "@chakra-ui/react";
-import { AppForm } from "@components/Form";
-import AppFormField from "@components/Form/FormField";
 import { getValidationSchemaObject } from "@helpers/validationSchemas";
 import { loginLayout } from "@layout/loginLayout";
+
+import { AppForm, AppFormField } from "@components/Form";
 import * as yup from "yup";
+
+const initialValues = {
+  email: "",
+  password: "",
+};
 
 const validationSchema = yup
   .object()
-  .shape(getValidationSchemaObject(["email", "password"]));
+  .shape(getValidationSchemaObject(Object.keys(initialValues)));
 
 function LoginPage() {
   return (
@@ -30,7 +35,7 @@ function LoginPage() {
       </Flex>
       <Flex flexBasis={1}>
         <AppForm
-          initialValues={{}}
+          initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={(e) => {}}
         >

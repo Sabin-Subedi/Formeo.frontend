@@ -34,18 +34,21 @@ function AppFormField({
   const { errors, touched, handleChange, handleBlur } = useFormikContext<any>();
   const error = errors && touched[name] && errors[name];
   const isInvalid = Boolean(invalid || error);
-  const FormInput = React.useMemo(() => getFormFieldItem(type), []);
+  const FormInput = React.useMemo(() => getFormFieldItem(type), [type]);
+
+  console.log();
+
   return (
     <FormControl
       isDisabled={disabled}
       isReadOnly={readOnly}
       isRequired={required}
       isInvalid={isInvalid}
-      onBlur={handleBlur}
       onChange={onChange || handleChange}
+      onBlur={handleBlur}
     >
       <FormLabel>{label}</FormLabel>
-      <FormInput />
+      <FormInput name={name} />
       {!isInvalid ? (
         <FormHelperText>{helpText}</FormHelperText>
       ) : (
