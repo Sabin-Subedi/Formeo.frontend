@@ -16,8 +16,8 @@ function LoginLayout({ children }: PageLayoutProps) {
   );
 }
 
-export const loginLayout = (page: React.ReactElement) => {
-  return <LoginLayout>{page}</LoginLayout>;
+export const loginLayout = (page: React.ReactElement, layoutProps?: {}) => {
+  return <LoginLayout {...layoutProps}>{page}</LoginLayout>;
 };
 
 export default LoginLayout;

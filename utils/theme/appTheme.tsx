@@ -142,8 +142,6 @@ const appTheme = extendTheme({
   },
 });
 
-console.log(appTheme.components.Button);
-
 interface ThemeProviderProps {
   children: React.ReactNode;
 }

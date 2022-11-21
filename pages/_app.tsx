@@ -7,7 +7,8 @@ import "@styles/globals.css";
 import ThemeProvider from "@theme/appTheme";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode;
+  getLayout?: (page: ReactElement, layoutProps?: {}) => ReactNode;
+  layoutProps?: {};
 };
 
 type AppPropsWithLayout = AppProps & {
@@ -16,10 +17,11 @@ type AppPropsWithLayout = AppProps & {
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);
+  const layoutProps = Component.layoutProps || {};
 
   return (
     <ThemeProvider>
-      {getLayout(<Component appName="Formio" {...pageProps} />)}
+      {getLayout(<Component appName="Formio" {...pageProps} />, layoutProps)}
     </ThemeProvider>
   );
 }
