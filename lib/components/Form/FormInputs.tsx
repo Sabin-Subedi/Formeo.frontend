@@ -24,10 +24,17 @@ export function PasswordInput(props: InputProps) {
       <InputRightElement>
         <IconButton
           size="md"
+          colorScheme="gray"
           background="transparent"
           onClick={handleClick}
+          _active={{
+            background: "transparent",
+          }}
+          _hover={{
+            backgroung: "transparent",
+          }}
           aria-label="password-icon"
-          icon={show ? <FiEye /> : <FiEyeOff />}
+          icon={show ? <FiEyeOff /> : <FiEye />}
         />
       </InputRightElement>
     </InputGroup>
