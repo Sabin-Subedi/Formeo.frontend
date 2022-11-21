@@ -94,7 +94,7 @@ function PasswordResetRequest({ appName, Logo }: DefaultPageProps) {
         email there with instructions to reset your password.
         <br />
         <br />
-        If you signed up with Google or Microsoft and didn’t set a password in
+        If you signed up with Google or Github and didn’t set a password in
         Typeform, try to sign in with the method you used to create your
         account.
       </AppModal>
