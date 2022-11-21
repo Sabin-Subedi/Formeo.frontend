@@ -24,7 +24,8 @@
       "@hoc/*": ["hoc/*"],
       "@hooks/*": ["hooks/*"],
       "@styles/*": ["styles/*"],
-      "@layout/*": ["pages/layouts/*"]
+      "@layout/*": ["pages/layouts/*"],
+      "@public/*": ["public/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

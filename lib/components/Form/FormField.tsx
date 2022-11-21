@@ -10,7 +10,7 @@ import React from "react";
 
 interface appFormFieldProps {
   name: string;
-  type?: "text" | "textarea" | "file" | "password";
+  type?: "text" | "textarea" | "file" | "password" | "email";
   required?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
@@ -18,6 +18,7 @@ interface appFormFieldProps {
   label: string;
   onChange?: FormikHandlers["handleChange"];
   helpText?: string;
+  placeholder?: string;
 }
 
 function AppFormField({
@@ -30,6 +31,7 @@ function AppFormField({
   type = "text",
   onChange,
   helpText,
+  placeholder,
 }: appFormFieldProps) {
   const { errors, touched, handleChange, handleBlur } = useFormikContext<any>();
   const error = errors && touched[name] && errors[name];
@@ -47,8 +49,25 @@ function AppFormField({
       onChange={onChange || handleChange}
       onBlur={handleBlur}
     >
-      <FormLabel>{label}</FormLabel>
-      <FormInput name={name} />
+      <FormLabel fontWeight="normal">{label}</FormLabel>
+      <FormInput
+        borderRadius={2}
+        borderWidth={1}
+        outline="none"
+        boxShadow="none"
+        placeholder={placeholder}
+        borderColor="gray.300"
+        _focusVisible={{
+          boxShadow: "none",
+          borderColor: "blackAlpha.800",
+        }}
+        _invalid={{
+          boxShadow: "none",
+          borderColor: "red.500",
+        }}
+        fontWeight="normal"
+        name={name}
+      />
       {!isInvalid ? (
         <FormHelperText>{helpText}</FormHelperText>
       ) : (

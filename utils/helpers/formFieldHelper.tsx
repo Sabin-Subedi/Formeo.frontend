@@ -3,6 +3,7 @@ import {
   ButtonProps,
   Checkbox,
   CheckboxProps,
+  defineStyle,
   Input,
   InputProps,
 } from "@chakra-ui/react";

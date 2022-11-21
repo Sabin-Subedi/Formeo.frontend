@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import { Formik } from "formik";
 import { appFormProps } from "./types";
 
@@ -13,7 +14,15 @@ export default function AppForm({
       initialValues={initialValues}
       onSubmit={onSubmit}
     >
-      {children}
+      {({ handleSubmit, handleReset }) => (
+        <form
+          className="fullWidth"
+          onSubmit={handleSubmit}
+          onReset={handleReset}
+        >
+          {children}
+        </form>
+      )}
     </Formik>
   );
 }

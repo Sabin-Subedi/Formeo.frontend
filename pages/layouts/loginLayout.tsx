@@ -4,7 +4,13 @@ import { Flex } from "@chakra-ui/react";
 
 function LoginLayout({ children }: PageLayoutProps) {
   return (
-    <Flex minWidth="100vw" height="100vh" direction="column">
+    <Flex
+      minWidth="100vw"
+      alignItems="center"
+      justifyContent="center"
+      height="100vh"
+      direction="column"
+    >
       {children}
     </Flex>
   );

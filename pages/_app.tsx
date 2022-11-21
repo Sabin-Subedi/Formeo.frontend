@@ -18,6 +18,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <ThemeProvider>{getLayout(<Component {...pageProps} />)}</ThemeProvider>
+    <ThemeProvider>
+      {getLayout(<Component appName="Formio" {...pageProps} />)}
+    </ThemeProvider>
   );
 }
