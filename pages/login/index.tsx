@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, Text,Link as ChakraLink } from "@chakra-ui/react";
 import { getValidationSchemaObject } from "@helpers/validationSchemas";
 import { loginLayout } from "@layout/loginLayout";
 
@@ -10,6 +10,9 @@ import Link from "next/link";
 import { AiOutlineGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import * as yup from "yup";
+import { GITHUB_OAUTH_URL } from "@constants/env";
+
+
 
 const initialValues = {
   email: "",
@@ -93,7 +96,11 @@ function LoginPage({ appName, Logo }: DefaultPageProps) {
           <AppButton block variant="outline" fontSize="md" icon={FcGoogle}>
             Log in with Google
           </AppButton>
+          <ChakraLink    
+            href={GITHUB_OAUTH_URL}>
+
           <AppButton
+     
             variant="outline"
             fontSize="md"
             icon={AiOutlineGithub}
@@ -102,6 +109,7 @@ function LoginPage({ appName, Logo }: DefaultPageProps) {
           >
             Log in with Github
           </AppButton>
+          </ChakraLink>
         </AppForm>
       </Flex>
     </>

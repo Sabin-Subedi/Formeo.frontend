@@ -26,6 +26,7 @@
       "@styles/*": ["styles/*"],
       "@layout/*": ["pages/layouts/*"],
       "@public/*": ["public/*"],
+      "@constants/*":["constants/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
