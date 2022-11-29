@@ -1,3 +1,6 @@
+import { getEncodedData, setEncodedData } from "./localStorage";
+import { getSessionData, setSessionData } from "./sessionStorage";
+
 let accessToken: string | undefined = undefined;
 let refreshToken: string | undefined = undefined;
 let registerToken: string | undefined = undefined;
@@ -11,12 +14,12 @@ export const logout = () => {
 
 export const setAccessToken = (s: string) => {
   accessToken = s;
-  sessionStorage.setItem("accessToken", s);
+  setSessionData("at", s);
 };
 
 export const getAccessToken = () => {
   if (accessToken === "" || accessToken === undefined) {
-    const token = sessionStorage.getItem("accessToken");
+    const token = getSessionData("at");
     if (token) {
       accessToken = token;
     }
@@ -26,12 +29,12 @@ export const getAccessToken = () => {
 
 export const setRefreshToken = (s: string) => {
   refreshToken = s;
-  localStorage.setItem("refreshToken", s);
+  setEncodedData("rt", s);
 };
 
 export const getRefreshToken = () => {
   if (refreshToken === "" || refreshToken === undefined) {
-    const token = localStorage.getItem("refreshToken");
+    const token = getEncodedData("rt");
     if (token) {
       refreshToken = token;
     }
