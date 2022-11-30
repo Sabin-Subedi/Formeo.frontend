@@ -1,10 +1,17 @@
+import { getAccessToken } from "@helpers/tokens";
 import { useGithubOauth } from "@queries/authQueries";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 
 function GithubOAuthPage() {
   const { mutate } = useGithubOauth();
   const router = useRouter();
+
+  useLayoutEffect(() => {
+    if (getAccessToken()) {
+      router.push("/login");
+    }
+  }, []);
 
   useEffect(() => {
     if (router.query.code) {
