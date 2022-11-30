@@ -1,5 +1,7 @@
 // api urls constant file
-const apiEndpoints = Object.freeze({
+const apiEndpoints: {
+  [key: string]: string;
+} = Object.freeze({
   // authentication urls (login, register, etc.)
   login: "/auth/login/",
   register: "/auth/register/",
