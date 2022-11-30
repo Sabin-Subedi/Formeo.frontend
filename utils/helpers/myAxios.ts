@@ -2,7 +2,6 @@ import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { getURL } from "./utils";
 
 interface MyAxiosRequestConfig extends AxiosRequestConfig {
-  baseURL?: string;
   name?: string;
   url?: string;
 }
@@ -18,13 +17,20 @@ const myaxios: MyAxiosInstanceConfig = axios.create({
 axios.interceptors.request.use(
   (config: MyAxiosRequestConfig) => {
     // Do something before request is sent
-    if (config.name) {
-      config.url = getURL(config.name);
-    }
+
     config;
     return config;
   },
   (error) => Promise.reject(error)
 );
+
+export const myAxiosRequest = (config: MyAxiosRequestConfig) => {
+  if (config.name) {
+    config.url = getURL(config.name);
+    delete config.name;
+  }
+
+  return myaxios.request(config);
+};
 
 export default myaxios;

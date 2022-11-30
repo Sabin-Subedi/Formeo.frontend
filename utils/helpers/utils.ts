@@ -2,10 +2,17 @@ import apiEndpoints from "@constants/apiEndpoints";
 import { API_BASE_URL } from "@constants/env";
 
 export const appendBaseURL = (url: string) => {
+  let baseUrl;
   if (!API_BASE_URL?.endsWith("/")) {
-    throw new Error("API_BASE_URL must end with a slash");
+    baseUrl = url.startsWith("/")
+      ? API_BASE_URL + url
+      : API_BASE_URL + "/" + url;
+  } else {
+    baseUrl = url.startsWith("/")
+      ? API_BASE_URL + url.slice(1)
+      : API_BASE_URL + url;
   }
-  return `${API_BASE_URL}${url}`;
+  return baseUrl;
 };
 
 export const getURL = (name: string): string => {
